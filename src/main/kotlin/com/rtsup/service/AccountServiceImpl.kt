@@ -14,6 +14,7 @@ open public class AccountServiceImpl : AccountService {
     override public fun registerNewAccount(acc: Account): Account {
         val oldAcc = accountRepository.findByName(acc.name)
         if (oldAcc == null) {
+            acc.id = null;
             return accountRepository.save(acc);
         } else {
             throw Exception("Account for name `${acc.name}` already exist")

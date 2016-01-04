@@ -8,6 +8,6 @@ public class Account(@Id var id: String?,
                      var roles: List<String>,
                      var active: Boolean = true) {
 
-    // Add default constructor. Account created, but field id is empty
-    //constructor() : this("", "", "", listOf(), true)
+    // Add default constructor due serialization restriction
+    constructor() : this(null, "", "", listOf(), true)
 }
